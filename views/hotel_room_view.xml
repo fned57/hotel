@@ -24,40 +24,33 @@
             <field name="model">hotel.room</field>
             <field name="arch" type="xml">
                 <form>
-                    <sheet>
-                        <div class="row align-items-start">
-                            <div class="col">
-                                <field name="avatar" widget="image"/>
-                                <field name="description"/>
-                            </div>
-                            <div class="col">
-                                <h1>
-                                    <spam>Room type:</spam>
-                                    <spam>
-                                        <field name="room_type_id"/>
-                                    </spam>
-                                </h1>
-                                <h2>
-                                    <spam>Name:</spam>
-                                    <spam>
-                                        <field name="name"/>
-                                    </spam>
-                                </h2>
-                                <p>
-                                    <spam>Status:</spam>
-                                    <spam>
-                                        <field name="status"/>
-                                    </spam>
-                                </p>
-                                <button class="btn btn-primary" name="%(hotel_reservation_form1_act)d" type="action">
+                    <header>
+                        <button class="btn btn-primary" string="Reservation" name="%(hotel_reservation_form1_act)d" type="action">
                                     Reservation
                                 </button>
-                                <div class="oe_chatter">
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                        <group>
+                            <field name="avatar" widget="image" nolabel="1"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="room_type_id"/>
+                            <field name="description"/>
+                            <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="price_hour" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="price_overnight" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id"/>
+                        </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                                    <field name="message_follower_ids"/>
+                                    <field name="activity_ids"/>
                                     <field name="message_ids"/>
                                 </div>
-                            </div>
-                        </div>
-                    </sheet>
                 </form>
             </field>
         </record>
@@ -118,9 +111,9 @@
             <field name="res_model">hotel.room</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">kanban,form,tree</field>
-<!--            <field name="context">-->
-<!--                {'search_default_room_type_id':1}-->
-<!--            </field>-->
+            <!--            <field name="context">-->
+            <!--                {'search_default_room_type_id':1}-->
+            <!--            </field>-->
         </record>
 
 
