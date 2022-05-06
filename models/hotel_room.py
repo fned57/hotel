@@ -5,7 +5,15 @@ from odoo import  fields, models, api
 
 class HotelRoom(models.Model):
     _name = 'hotel.room'
+<<<<<<< HEAD
+<<<<<<< HEAD
     _inherit = ['mail.thread']
+=======
+    _inherit = ['mail.thread','mail.activity.mixin']
+>>>>>>> f464498... update roomtype and room
+=======
+    _inherit = ['mail.thread']
+>>>>>>> af525dd... room
     _description = "Hotel Rooms"
 
     name = fields.Char(string="Name room")
@@ -24,8 +32,5 @@ class HotelRoom(models.Model):
         self.currency_id = self.env.company.currency_id
 
 
-
-    def test(self):
-        print(1)
 
 
