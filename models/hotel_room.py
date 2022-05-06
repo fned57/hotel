@@ -30,3 +30,4 @@ class HotelRoom(models.Model):
 
     def test1(self):
         print(2)
+
