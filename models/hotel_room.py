@@ -24,3 +24,9 @@ class HotelRoom(models.Model):
         self.currency_id = self.env.company.currency_id
 
 
+    def test(self):
+        print(1)
+
+
+    def test1(self):
+        print(2)
