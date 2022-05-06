@@ -23,5 +23,3 @@ class HotelRoom(models.Model):
     def _compute_currency(self):
         self.currency_id = self.env.company.currency_id
 
-
-
