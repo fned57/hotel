@@ -5,7 +5,7 @@ from odoo import  fields, models, api
 
 class HotelRoom(models.Model):
     _name = 'hotel.room'
-    _inherit = ['mail.thread','mail.activity.mixin']
+    _inherit = ['mail.thread']
     _description = "Hotel Rooms"
 
     name = fields.Char(string="Name room")
