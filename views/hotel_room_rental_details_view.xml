@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+
+    <data>
+<!--        <record id="ir_filters_view_search" model="ir.ui.view">-->
+<!--            <field name="model">ir.filters</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Filters">-->
+<!--                    <field name="room_id" domain="[('status','=', '1')]"/>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+        <record id="hotel_room_rental_details_view_form" model="ir.ui.view">
+            <field name="name">hotel.room.rental.details.form</field>
+            <field name="model">hotel.room.rental.detail</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="room_id" domain="[('status','=', '1')]"/>
+                            <field name="compute_rent" widget="radio" />
+                        </group>
+                        <group attrs="{'invisible':[('compute_rent', '!=', 'date')]}">
+                            <field name="arrival_date"/>
+                            <field name="departure_date"/>
+                        </group>
+                        <group attrs="{'invisible':[('compute_rent', '!=', 'hour')]}">
+                            <field name="time_start" />
+                            <field name="time_end" />
+                        </group>
+                        <group>
+                            <field name="promotion_ids" widget="many2many_tags"
+                                   domain="[('ending_date', '&gt;=', datetime.date.today().strftime('%Y-%m-%d')),('starting_date', '&lt;=', datetime.date.today().strftime('%Y-%m-%d'))]"/>
+                        </group>
+                        <group>
+                            <field name="total"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

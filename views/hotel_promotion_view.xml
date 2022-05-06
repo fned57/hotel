@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+
+    <data>
+        <record id="hotel_promotion_view_from" model="ir.ui.view">
+            <field name="name">hotel.promotion.kanban</field>
+            <field name="model">hotel.promotion</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="subject"/>
+                            </group>
+                            <group>
+                                <field name="starting_date"/>
+                                <field name="ending_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="short_description"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="compute_price" widget="radio"/>
+                            </group>
+                            <group>
+                                <field name="image"/>
+                            </group>
+                        </group>
+                        <group attrs="{'invisible':[('compute_price', '!=', 'percentage')]}">
+
+                            <field name="discount" class="oe_inline"
+                                   attrs="{'invisible':[('compute_price', '!=', 'percentage')]}"/>
+                        </group>
+                        <group attrs="{'invisible':[('compute_price', '!=', 'fixed')]}">
+
+
+                            <field name="fixed_price" class="oe_inline" widget="monetary"
+                                   attrs="{'invisible':[('compute_price', '!=', 'fixed')]}"/>
+
+                        </group>
+                        <group>
+                            <field name="room_type_ids" widget="many2many_tags"/>
+                            <field name="status"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="hotel_promotion_view_kanban" model="ir.ui.view">
+            <field name="name">hotel.promotion.kanban</field>
+            <field name="model">hotel.promotion</field>
+            <field name="arch" type="xml">
+
+                <kanban>
+                    <field name="name"/>
+                    <field name="starting_date"/>
+                    <field name="ending_date"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+
+
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div t-attf-class="#{!selection_mode ? 'text-center' : ''}">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                                <hr class="mt4 mb4"/>
+
+                                <div class="row" t-if="!selection_mode">
+                                    <div class="col-6 text-center">
+                                        <strong>Start day</strong>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <strong>End day</strong>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <field name="starting_date"/>
+                                    </div>
+
+                                    <div class="col-6 text-center o_force_ltr">
+                                        <field name="ending_date"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>
+
+        <record id="hotel_promotion_act" model="ir.actions.act_window">
+            <field name="name">Promotion</field>
+            <field name="res_model">hotel.promotion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,form,tree</field>
+        </record>
+        <menuitem id="hotel_promotion_menu"
+                  name="Promotion"
+                  parent="hotel_menu_root"
+                  action="hotel_promotion_act"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+    <data>
+
+        <record id="hotel_room_view_search" model="ir.ui.view">
+            <field name="name">hotel.room.search</field>
+            <field name="model">hotel.room</field>
+            <field name="arch" type="xml">
+                <search>
+
+                    <group expand="1" string="Group By">
+                        <filter string="Room type" name="room_type_id"
+                                context="{'group_by':'room_type_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="hotel_room_view_form" model="ir.ui.view">
+            <field name="name">hotel.room.form</field>
+            <field name="model">hotel.room</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <field name="avatar" widget="image"/>
+                                <field name="description"/>
+                            </div>
+                            <div class="col">
+                                <h1>
+                                    <spam>Room type:</spam>
+                                    <spam>
+                                        <field name="room_type_id"/>
+                                    </spam>
+                                </h1>
+                                <h2>
+                                    <spam>Name:</spam>
+                                    <spam>
+                                        <field name="name"/>
+                                    </spam>
+                                </h2>
+                                <p>
+                                    <spam>Status:</spam>
+                                    <spam>
+                                        <field name="status"/>
+                                    </spam>
+                                </p>
+                                <button class="btn btn-primary" name="%(hotel_reservation_form1_act)d" type="action">
+                                    Reservation
+                                </button>
+                                <div class="oe_chatter">
+                                    <field name="message_ids"/>
+                                </div>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="hotel_room_view_kanban" model="ir.ui.view">
+            <field name="name">hotel.room.kanban</field>
+            <field name="model">hotel.room</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="avatar"/>
+                    <field name="status"/>
+                    <field name="description"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="card">
+                                    <field name="avatar" widget="image"/>
+                                    <div class="card-body">
+                                        <h3>
+                                            <spam>Name:</spam>
+                                            <spam>
+                                                <field name="name"/>
+                                            </spam>
+                                        </h3>
+                                        <h4>
+                                            <spam>Status:</spam>
+                                            <spam>
+                                                <field name="status"/>
+                                            </spam>
+                                        </h4>
+                                        <p class="card-text">
+                                            Description :
+                                            <field name="description"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="hotel_rooms_act_in_active_id" model="ir.actions.act_window">
+            <field name="name">Room</field>
+            <field name="res_model">hotel.room</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="domain">
+                [("room_type_id.id", "=", active_id)]
+            </field>
+        </record>
+
+        <record id="hotel_room_act" model="ir.actions.act_window">
+            <field name="name">Room</field>
+            <field name="res_model">hotel.room</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,form,tree</field>
+<!--            <field name="context">-->
+<!--                {'search_default_room_type_id':1}-->
+<!--            </field>-->
+        </record>
+
+
+        <menuitem id="hotel_room_menu"
+                  name="Room"
+                  parent="hotel_menu_root"
+                  action="hotel_room_act"
+        />
+
+    </data>
+</odoo>

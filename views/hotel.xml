@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="test js" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+
+            <script type="text/javascript" src="/hotel/static/src/js/test.js"></script>
+        </xpath>
+    </template>
+</odoo>
