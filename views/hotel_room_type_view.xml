@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+
+    <data>
+        <record id="view_hotel_room_type_kanban" model="ir.ui.view">
+            <field name="name">hotel.room.type.kanban</field>
+            <field name="model">hotel.room.type</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="description"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class=".container" style="width: 30rem;">
+
+                                    <h1>
+                                        <field name="name"/>
+                                    </h1>
+                                    <p>
+                                        <field name="price" widget='monetary'/>
+                                        <field name="description"/>
+                                    </p>
+                                </div>
+                                <button class="btn btn-primary" name="%(hotel_rooms_act_in_active_id)d" type="action">
+                                    Rooms
+                                </button>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="hotel_room_type_act" model="ir.actions.act_window">
+            <field name="name">Room type</field>
+            <field name="res_model">hotel.room.type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,form,tree</field>
+        </record>
+        <menuitem id="hotel_room_type_menu"
+                  name="Room Type"
+                  parent="hotel_menu_root"
+                  action="hotel_room_type_act"
+        />
+
+    </data>
+</odoo>

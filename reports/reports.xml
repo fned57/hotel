@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <report
+        id="report_hotel_reservation"
+        model="hotel.reservation.form"
+        string="Print to PDF"
+        report_type="qweb-pdf"
+        name="hotel.reservation"
+        file="hotel.reservation"
+
+    />
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+
+    <data>
+
+
+<!--        <record id="hotel_service_detail_act" model="ir.actions.act_window">-->
+<!--            <field name="name">Service</field>-->
+<!--            <field name="res_model">hotel.service.detail</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="view_mode">form</field>-->
+<!--        </record>-->
+<!--        <menuitem id="hotel_service_detail_menu"-->
+<!--                  name="Service detail"-->
+<!--                  parent="hotel_service_menu_root"-->
+<!--                  action="hotel_service_detail_act"-->
+<!--        />-->
+
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <menuitem id="hotel_menu_roots"
+                  name="Hotel"
+
+        />
+        <!--        menu-->
+        <menuitem id="hotel_menu_root"
+                  name="Hotel"
+                  parent="hotel_menu_roots"
+        />
+
+        <menuitem id="hotel_service_menu_root"
+                  name="Service"
+                   parent="hotel_menu_roots"
+        />
+        <menuitem id="hotel_position_menu_root"
+                   parent="hotel_menu_roots"
+                  name="Position"/>
+
+
+        <menuitem id="hotel_guest_menu_root"
+                   parent="hotel_menu_roots"
+                  name="Book room"/>
+    </data>
+</odoo>
