@@ -12,7 +12,6 @@ class HotelRoom(models.Model):
     avatar = fields.Binary(string="Image Avatar")
     room_type_id = fields.Many2one('hotel.room.type', string="Room type")
     reservation_form_ids = fields.Many2many('hotel.reservation.form')
-    # evaluate_ids = fields.One2many('hotel.evaluate', 'room_id', string="Evaluate", readonly=False)
     evaluate_ids = fields.One2many('mail.message', string="Messages", store=False)
     price = fields.Float(string="Price", related='room_type_id.price')
 
