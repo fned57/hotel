@@ -11,3 +11,4 @@ class HotelRoomType(models.Model):
     price_hour = fields.Float(string="Price Hour")
     price_overnight = fields.Float(string="Price over night")
     room_ids = fields.One2many('hotel.room', 'room_type_id', string="Rooms")
+    currency_id = fields.Many2one('res.currency', 'currency')
