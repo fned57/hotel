@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="assets_backend" name="test js" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-
-            <script type="text/javascript" src="/hotel/static/src/js/test.js"></script>
-        </xpath>
-    </template>
+    <data>
+        <template id="assets_backend" name="stock_barcode assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Noto+Serif" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+<!--                <script type="text/javascript" src="hotel/static/src/js/test.js"/>-->
+            </xpath>
+        </template>
+    </data>
 </odoo>

@@ -4,19 +4,19 @@
 <odoo>
     <data>
 
-        <record id="hotel_room_view_search" model="ir.ui.view">
-            <field name="name">hotel.room.search</field>
-            <field name="model">hotel.room</field>
-            <field name="arch" type="xml">
-                <search>
+<!--        <record id="hotel_room_view_search" model="ir.ui.view">-->
+<!--            <field name="name">hotel.room.search</field>-->
+<!--            <field name="model">hotel.room</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search>-->
 
-                    <group expand="1" string="Group By">
-                        <filter string="Room type" name="room_type_id"
-                                context="{'group_by':'room_type_id'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Room type" name="room_type_id"-->
+<!--                                context="{'group_by':'room_type_id'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
 
 
         <record id="hotel_room_view_form" model="ir.ui.view">
@@ -28,6 +28,7 @@
                         <button class="btn btn-primary" string="Reservation" name="%(hotel_reservation_form1_act)d" type="action">
                                     Reservation
                                 </button>
+                        <button string="Ready" name="button_ready" type="object"/>
                         <field name="status" widget="statusbar"/>
                     </header>
                     <sheet>
@@ -42,7 +43,7 @@
                             <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                             <field name="price_hour" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                             <field name="price_overnight" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                            <field name="currency_id"/>
+                            <field name="currency_id" invisible="1"/>
                         </group>
                         </group>
                     </sheet>

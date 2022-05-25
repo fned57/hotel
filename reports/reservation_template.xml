@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <h1>INVOICE</h1>
+                            <h1>Hóa đơn</h1>
                             <h2>
                                 User name:
                                 <t t-esc="doc.guest_id.name"/>
@@ -19,7 +19,7 @@
                             Total chidren :
                             <t t-esc="doc.total_children"/>
                             <br/>
-                            Date of issue :
+                            Ngày tạo :
                             <t t-esc="doc.date_of_issue"/>
                         </div>
                     </div>

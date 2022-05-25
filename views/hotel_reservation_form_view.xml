@@ -96,6 +96,7 @@
                             <group>
                                 <field name="total_mature"/>
                                 <field name="total_children"/>
+                                <field name="sotiendatcoc"/>
                             </group>
                         </group>
                         <group>
@@ -125,6 +126,11 @@
                             </notebook>
                         </group>
                     </sheet>
+                    <div class="oe_chatter">
+                                    <field name="message_follower_ids"/>
+                                    <field name="activity_ids"/>
+                                    <field name="message_ids"/>
+                                </div>
                 </form>
             </field>
         </record>

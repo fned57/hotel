@@ -27,16 +27,21 @@
         'views/hotel_service_detail_view.xml',
         'views/hotel_position_view.xml',
         'views/hotel_staff_view.xml',
-        
+
 
         'reports/reports.xml',
         'reports/reservation_template.xml',
         'views/hotel_room_rental_details_view.xml',
-        'data/mail_template.xml'
+        'data/mail_template.xml',
+        'data/mail_activity_type.xml',
+        'static/xml/home.xml'
 
 
     ],
-    # 'qweb': ['static/src/xml/*.xml'],
+    # 'qweb': [
+    #     'static/src/xml/*.xml',
+    #     'static/src/css/*.css',
+    # ],
     'installable': True,
     'application': True,
 }

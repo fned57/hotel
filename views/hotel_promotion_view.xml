@@ -28,7 +28,7 @@
                                 <field name="compute_price" widget="radio"/>
                             </group>
                             <group>
-                                <field name="image"/>
+                                <field name="image" widget="image"/>
                             </group>
                         </group>
                         <group attrs="{'invisible':[('compute_price', '!=', 'percentage')]}">

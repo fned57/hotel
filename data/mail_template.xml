@@ -12,5 +12,12 @@
                 <p>Cảm ơn bạn đã đặt phòng tại khác sạn của chúng tôi. Chúc quý khách có những ngày nghỉ vui vẻ </p>
             </field>
         </record>
+
+
+        <record id="mail_activity_booking_service" model="mail.activity.type">
+        <field name="name">Booking service</field>
+    </record>
     </data>
+
+
 </odoo>

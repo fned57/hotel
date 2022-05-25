@@ -18,6 +18,6 @@ class HotelPayWizard(models.TransientModel):
     def pay(self):
         self.reservation_id.status = '3'
         for room in self.reservation_id.room_ids:
-            room.room_id.status = '1'
+            room.room_id.status = '2'
 
 

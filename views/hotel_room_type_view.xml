@@ -4,6 +4,21 @@
 <odoo>
 
     <data>
+        <record id="view_hotel_room_type_tree" model="ir.ui.view">
+            <field name="name">hotel.room.type.tree</field>
+            <field name="model">hotel.room.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="price"/>
+                    <field name="price_hour"/>
+                    <field name="price_overnight"/>
+                    <field name="room_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
         <record id="view_hotel_room_type_kanban" model="ir.ui.view">
             <field name="name">hotel.room.type.kanban</field>
             <field name="model">hotel.room.type</field>
@@ -12,10 +27,13 @@
                     <field name="name"/>
                     <field name="price"/>
                     <field name="description"/>
+                    <field name="sophongtrong"/>
+                    <field name="sophongban"/>
+
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click">
-                                <div class=".container" style="width: 30rem;">
+                                <div class="container" style="width: 30rem;">
 
                                     <h1>
                                         <field name="name"/>
@@ -24,6 +42,16 @@
                                         <field name="price" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                                         <field name="description"/>
                                     </p>
+                                    <p>
+                                        <spam>Số phòng trống:</spam><spam><field name="sophongtrong"/></spam>
+                                    </p>
+                                    <p>
+                                        <spam>Số phòng bận:</spam><spam><field name="sophongban"/></spam>
+                                    </p>
+                                    <p>
+                                        <spam>Số phòng sửa chữa:</spam><spam><field name="sophongsuachua"/></spam>
+                                    </p>
+
                                 </div>
                                 <button class="btn btn-primary" name="%(hotel_rooms_act_in_active_id)d" type="action">
                                     Rooms
