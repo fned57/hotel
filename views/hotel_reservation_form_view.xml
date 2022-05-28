@@ -43,6 +43,38 @@
             </field>
         </record>
 
+        <record id="hotel_reservation_form_view_search" model="ir.ui.view">
+            <field name="name">hotel_reservation_form_search</field>
+            <field name="model">hotel.reservation.form</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group expand="0" string="Group By">
+                        <filter name="Lên kế hoạch" domain="[('status','=','1')]" />
+                        <filter name="Đang thực hiện" domain="[('status','=','2')]" />
+                        <filter name="Hoàn thành" domain="[('status','=','3')]" />
+                        <filter name="Hủy" domain="[('status','=','4')]" />
+                    </group>
+                    
+                </search>
+            </field>
+        </record>
+
+        <record id="hotel_reservation_form_view_tree" model="ir.ui.view">
+            <field name="name">hotel.reservation.form.tree</field>
+            <field name="model">hotel.reservation.form</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_of_issue"/>
+                    <field name="guest_id"/>
+                    <field name="current_id"/>
+                    <field name="date_of_issue"/>
+                    <field name="status" />
+                    <field name="total_money" sum="Tổng tiền" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                </tree>
+            </field>
+        </record>
+
         <record id="hotel_reservation_form_view_form" model="ir.ui.view">
             <field name="name">hotel.reservation.form.form</field>
             <field name="model">hotel.reservation.form</field>
@@ -84,6 +116,9 @@
 
                     </header>
                     <sheet>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
 
                         <group>
                             <group>
@@ -140,11 +175,7 @@
             <field name="name">reservation form</field>
             <field name="res_model">hotel.reservation.form</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="view_mode">kanban,form,tree</field>
-            <!--            <field name="context">-->
-            <!--                { 'search_default_status2': 1-->
-            <!--                }-->
-            <!--            </field>-->
+            <field name="view_mode">tree,kanban,form</field>
 
         </record>
 

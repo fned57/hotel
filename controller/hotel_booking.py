@@ -14,11 +14,14 @@ class BookingController(http.Controller):
     def post_booking(self, **kwargs):
         rooms = []
         status = ''
+        timphong = True
         for i in kwargs:
             try:
                 i = int(i)
-                if int(kwargs[str(i)]) > len(request.env['hotel.room'].sudo().search([('room_type_id.id', '=', str(i)), ('status','=', '2')])):
-                    status = 'không đủ số lượng phòng ' + str(i)
+                rooms = request.env['hotel.room'].sudo().search([('room_type_id.id', '=', str(i)), ('status','=', '2')])
+                if int(kwargs[str(i)]) > len(rooms):
+                    status = 'không đủ số lượng phòng ' + rooms[0].room_type_id.name
+                    timphong = False
                     break
                 room = request.env['hotel.room'].sudo().search([('room_type_id.id', '=', str(i)), ('status', '=', '2')],
                                                                limit=int(kwargs[str(i)]))
@@ -30,13 +33,14 @@ class BookingController(http.Controller):
             employee = request.env['hr.employee'].sudo().create({'name': kwargs['your_name'],
                                                                  'mobile_phone': kwargs['Phone Number'],
                                                                  })
-        value = {
-            "guest_id": employee.id,
-            'total_mature': kwargs['count_cha'],
-            'total_children': kwargs['count_children'],
-        }
 
-        if len(rooms) > 0:
+        booking = None
+        if timphong:
+            value = {
+                "guest_id": employee.id,
+                'total_mature': kwargs['count_cha'],
+                'total_children': kwargs['count_children'],
+            }
             booking = request.env['hotel.reservation.form'].sudo().create(value)
             for i in rooms:
                 for j in i:
@@ -47,13 +51,20 @@ class BookingController(http.Controller):
                         'room_id': j.id
                 })
             status = 'Đặt phòng thành công'
-        return request.render('hotel.detail_booking', {'booking': booking,
+            return request.render('hotel.detail_booking', {'booking': booking,
                                                        'status': status,
                                                        'huy': 'huy/' + str(booking.id),
                                                        'name': kwargs['your_name'],
                                                        'mobile_phone': kwargs['Phone Number'],
                                                        },
                               )
+        else:
+            return request.render('hotel.detail_booking', {
+                                                           'status': status,
+                                                           'name': kwargs['your_name'],
+                                                           'mobile_phone': kwargs['Phone Number'],
+                                                           },
+                                  )
 
     @http.route('/bookings_list', website=True, auth='public', methods=['GET'])
     def rooms(self, **kwargs):

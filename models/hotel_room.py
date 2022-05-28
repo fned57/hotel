@@ -1,4 +1,4 @@
-from odoo import  fields, models, api
+from odoo import fields, models, api
 
 
 class HotelRoom(models.Model):
@@ -7,7 +7,8 @@ class HotelRoom(models.Model):
     _description = "Hotel Rooms"
 
     name = fields.Char(string="Name room")
-    status = fields.Selection([('1', 'Plan'), ('2', 'Empty'), ('3', 'Busy')], 'Status', default='1',track_visibility=True)
+    status = fields.Selection([('1', 'Plan'), ('2', 'Empty'), ('3', 'Busy')], 'Status', default='1',
+                              track_visibility=True)
     description = fields.Text(string="Description Room")
     avatar = fields.Binary(string="Image Avatar")
     room_type_id = fields.Many2one('hotel.room.type', string="Room type")
@@ -18,10 +19,11 @@ class HotelRoom(models.Model):
     price_overnight = fields.Float(string="Price over night", digits=(12, 0), related='room_type_id.price_overnight')
     currency_id = fields.Many2one('res.currency', related='room_type_id.currency_id')
 
+    def name_get(self):
+        return [(rec.id, '[ ' + rec.room_type_id.name + ' ] ' + rec.name) for rec in self]
+
     def _compute_currency(self):
         self.currency_id = self.env.company.currency_id
 
     def button_ready(self):
         self.status = '2'
-
-

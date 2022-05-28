@@ -24,6 +24,11 @@ class HotelRoomRentalDetail(models.Model):
     time_end = fields.Datetime('Time end', default=lambda self: fields.Datetime.now())
     so_tien_da_thanh_toan = fields.Integer('Số tiền thanh toán')
 
+    @api.onchange('time_start','time_end')
+    def _onchange_time_start(self):
+        self.arrival_date = self.time_start
+        self.departure_date = self.time_end
+
     @api.constrains('arrival_date')
     def _onchange_arrival_date(self):
         if (self.arrival_date - date.today()).days >= 0:
