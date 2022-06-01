@@ -43,21 +43,21 @@
             </field>
         </record>
 
-<!--        <record id="hotel_reservation_form_view_search" model="ir.ui.view">-->
-<!--            <field name="name">hotel_reservation_form_search</field>-->
-<!--            <field name="model">hotel.reservation.form</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <search string="">-->
-<!--                    <group expand="0" string="Group By">-->
-<!--                        <filter name="Lên kế hoạch" domain="[('status','=','1')]" />-->
-<!--                        <filter name="Đang thực hiện" domain="[('status','=','2')]" />-->
-<!--                        <filter name="Hoàn thành" domain="[('status','=','3')]" />-->
-<!--                        <filter name="Hủy" domain="[('status','=','4')]" />-->
-<!--                    </group>-->
-<!--                    -->
-<!--                </search>-->
-<!--            </field>-->
-<!--        </record>-->
+        <record id="hotel_reservation_form_view_search" model="ir.ui.view">
+            <field name="name">hotel_reservation_form_search</field>
+            <field name="model">hotel.reservation.form</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <group expand="0" string="Group By">
+                        <filter name="Lên kế hoạch" domain="[('status','=','1')]" />
+                        <filter name="Đang thực hiện" domain="[('status','=','2')]" />
+                        <filter name="Hoàn thành" domain="[('status','=','3')]" />
+                        <filter name="Hủy" domain="[('status','=','4')]" />
+                    </group>
+
+                </search>
+            </field>
+        </record>
 
         <record id="hotel_reservation_form_view_tree" model="ir.ui.view">
             <field name="name">hotel.reservation.form.tree</field>
@@ -192,7 +192,10 @@
             <field name="name">reservation form</field>
             <field name="res_model">hotel.reservation.form</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="view_mode">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">
+                            [("room_ids", "in", active_id)]
+            </field>
         </record>
 
         <menuitem id="hotel_reservation_form_menu"

@@ -18,8 +18,8 @@ class BookingController(http.Controller):
         for i in kwargs:
             try:
                 i = int(i)
-                rooms = request.env['hotel.room'].sudo().search([('room_type_id.id', '=', str(i)), ('status','=', '2')])
-                if int(kwargs[str(i)]) > len(rooms):
+                roomm = request.env['hotel.room'].sudo().search([('room_type_id.id', '=', str(i)), ('status','=', '2')])
+                if int(kwargs[str(i)]) > len(roomm):
                     status = 'không đủ số lượng phòng ' + rooms[0].room_type_id.name
                     timphong = False
                     break

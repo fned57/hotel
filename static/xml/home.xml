@@ -891,11 +891,6 @@
                     </label>
                 </div>
                 <div class="form-group">
-                    <label>Địa chị email:
-                        <t t-esc="work_email"/>
-                    </label>
-                </div>
-                <div class="form-group">
                     <label>Số điện thoại:
                         <t t-esc="mobile_phone"/>
                     </label>

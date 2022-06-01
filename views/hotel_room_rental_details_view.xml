@@ -14,6 +14,10 @@
                                 name="pay"
                                 string="Thanh toán"
                                 type="object"
+                        /><button class="btn btn-primary"
+                                name="%(hotel_reservation_form1_act)d" type="action"
+                                string="Hóa đơn"
+
                         />
                     <field name="status" widget="statusbar"/>
                     </header>
@@ -60,9 +64,9 @@
             <field name="name">Chi tết đặt phòng</field>
             <field name="res_model">hotel.room.rental.detail</field>
             <field name="view_mode">tree,form</field>
-<!--            <field name="domain">-->
-<!--                            [("room_id.room_type_id.id", "=", active_id),('status', '=', '3')]-->
-<!--            </field>-->
+            <field name="domain">
+                            [("room_id.room_type_id.id", "=", active_id),('status', '=', '3')]
+            </field>
         </record>
     </data>
 </odoo>
