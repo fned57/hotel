@@ -56,7 +56,11 @@
                                 <button class="btn btn-primary" name="%(hotel_rooms_act_in_active_id)d" type="action">
                                     Rooms
                                 </button>
+                                <button class="btn btn-primary" name="%(hotel_room_rental_details_view_act)d" type="action">
+                                    Kế hoạch
+                                </button>
                             </div>
+
                         </t>
                     </templates>
                 </kanban>

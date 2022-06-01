@@ -9,7 +9,7 @@ class HotelRoomRentalDetail(models.Model):
 
     status = fields.Selection([
         ('1', "Đang sử dụng"),
-        ('2', 'Thanh toán')], default='1')
+        ('2', 'Thanh toán'),('3', 'Lên kế hoạch')])
     compute_rent = fields.Selection([
         ('date', 'Date'),
         ('hour', 'Hour'),
@@ -61,6 +61,8 @@ class HotelRoomRentalDetail(models.Model):
 
     @api.onchange('room_id')
     def _onchange_room_id(self):
+        if self.room_id.status == '3':
+            print(1)
         if self.room_id.room_type_id:
             domain = [
                 ('starting_date', '<=', date.today()),
@@ -69,10 +71,10 @@ class HotelRoomRentalDetail(models.Model):
             ]
             self.promotion_ids = self.env['hotel.promotion'].search(domain)
 
-    @api.constrains('room_id')
-    def statusroom(self):
-        for i in self:
-            i.room_id.status = '3'
+    # @api.constrains('room_id')
+    # def statusroom(self):
+    #     for i in self:
+    #         i.room_id.status = '3'
 
     def chuyenphong(self):
         pass
@@ -82,4 +84,5 @@ class HotelRoomRentalDetail(models.Model):
         self.total -= self.so_tien_da_thanh_toan
 
     def pay(self):
+        pass
         self.status = '2'

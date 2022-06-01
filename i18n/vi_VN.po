@@ -441,7 +441,7 @@ msgstr "Mô tả phòng"
 #. module: hotel
 #: model:ir.model.fields,field_description:hotel.field_hotel_room_type__description
 msgid "Description room type"
-msgstr "Mô tả kiểu phòng"
+msgstr "Mô tả loại phòng"
 
 #. module: hotel
 #: model:ir.model.fields,field_description:hotel.field_hotel_position__description
@@ -549,7 +549,7 @@ msgstr "Phòng"
 #. module: hotel
 #: model:ir.model,name:hotel.model_hotel_room_type
 msgid "Hotel Rooms Type"
-msgstr "Kiểu phòng"
+msgstr "Loại phòng"
 
 #. module: hotel
 #: model:ir.model,name:hotel.model_hotel_service
@@ -979,7 +979,7 @@ msgstr "Phòng"
 #. module: hotel
 #: model:ir.ui.menu,name:hotel.hotel_room_type_menu
 msgid "Room Type"
-msgstr "Kiểu phòng"
+msgstr "Loại phòng"
 
 #. module: hotel
 #: model:ir.actions.act_window,name:hotel.hotel_room_type_act
@@ -987,7 +987,7 @@ msgstr "Kiểu phòng"
 #: model:ir.model.fields,field_description:hotel.field_hotel_room__room_type_id
 #: model:ir.model.fields,field_description:hotel.field_hotel_room_type__name
 msgid "Room type"
-msgstr "Kiểu phòng"
+msgstr "Loại phòng"
 
 #. module: hotel
 #: model:ir.model.fields,field_description:hotel.field_hotel_room_type__room_ids

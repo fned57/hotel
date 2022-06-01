@@ -17,6 +17,7 @@
 
         'wizard/hotel_pay_views.xml',
         'views/hotel_menu_root.xml',
+        'views/hotel_room_rental_details_view.xml',
         
         'views/hotel_reservation_form_view.xml',
         

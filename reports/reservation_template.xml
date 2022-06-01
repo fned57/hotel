@@ -10,13 +10,13 @@
                         <div class="col">
                             <h1>Hóa đơn</h1>
                             <h2>
-                                User name:
+                                Khách hàng:
                                 <t t-esc="doc.guest_id.name"/>
                             </h2>
-                            Total mature :
+                            Tổng người lớn :
                             <t t-esc="doc.total_mature"/>
                             <br/>
-                            Total chidren :
+                            Tổng trẻ em :
                             <t t-esc="doc.total_children"/>
                             <br/>
                             Ngày tạo :

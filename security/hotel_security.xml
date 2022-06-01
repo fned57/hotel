@@ -17,7 +17,7 @@
         <record model="ir.rule" id="group_hotel_rule_user">
             <field name="name">Reservation</field>
             <field name="model_id" ref="model_hotel_reservation_form"/>
-            <field name="domain_force">[('guest_id', '=', user.id)]</field>
+            <field name="domain_force">[('guest_id.user_id', '=', user.id)]</field>
             <field name="groups" eval="[(4, ref('hotel.group_hotel_user'))]"/>
         </record>
         <record model="ir.rule" id="group_hotel_rule_manager">

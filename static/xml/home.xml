@@ -59,7 +59,7 @@
                                     <span class="s_number display-4 o_default_snippet_text">
                                         <t t-esc="count_rooms_buys"/>
                                     </span>
-                                    <h6 class="o_default_snippet_text">Số phòng đang thuê</h6>
+                                    <h6 class="o_default_snippet_text">Số phòng đang sự dụng</h6>
                                 </div>
                                 <div class="col-lg-3 text-center pt24 pb24 o_colored_level">
                                     <span class="s_number display-4 o_default_snippet_text">
@@ -417,12 +417,19 @@
                                                 <span class="s_website_form_mark">*</span>
                                             </label>
                                             <div class="col-sm">
+                                                <div class="row">
+
+                                                    <div class="col-6"></div>
+                                                    <div class="col-2 font-weight-bold text-nowrap">Giá theo ngày</div>
+                                                    <div class="col-2 font-weight-bold text-nowrap">Giá theo giờ</div>
+                                                    <div class="col-2 font-weight-bold text-nowrap">Giá theo đêm</div>
+                                                </div>
                                                 <t t-foreach="room_type_ids" t-as="room_type">
                                                     <div class="row">
                                                         <div class="col-6">
                                                              <div class="row s_col_no_resize s_col_no_bgcolor">
                                                             <label class="col-form-label col-sm-auto s_website_form_label "
-                                                                   style="width: 200px" for="o6qdisv5r1wv">
+                                                                   style="width: 150px" for="o6qdisv5r1wv">
                                                                 <span class="s_website_form_label_content">
                                                                     <t t-esc="room_type.name"/>
                                                                 </span>
@@ -435,11 +442,27 @@
                                                             </div>
                                                         </div>
                                                         </div>
-                                                        <div class="col-6">
-                                                             <label class="col-form-label col-sm-auto s_website_form_label "
+                                                        <div class="col-2">
+                                                             <label class="col-form-label col-sm-auto s_website_form_label " string="Giá theo ngày"
                                                                    style="width: 200px" for="o6qdisv5r1wv">
                                                                 <span class="s_website_form_label_content">
-                                                                    <t t-esc="room_type.description"/>
+                                                                    <t t-esc="room_type.price"/>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-2">
+                                                             <label class="col-form-label col-sm-auto s_website_form_label " string="Giá theo giờ"
+                                                                   style="width: 200px" for="o6qdisv5r1wv">
+                                                                <span class="s_website_form_label_content">
+                                                                    <t t-esc="room_type.price_hour"/>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-2">
+                                                             <label class="col-form-label col-sm-auto s_website_form_label " string="Giá theo đêm"
+                                                                   style="width: 200px" for="o6qdisv5r1wv">
+                                                                <span class="s_website_form_label_content">
+                                                                    <t t-esc="room_type.price_overnight"/>
                                                                 </span>
                                                             </label>
                                                         </div>

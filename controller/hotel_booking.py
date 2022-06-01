@@ -33,8 +33,6 @@ class BookingController(http.Controller):
             employee = request.env['hr.employee'].sudo().create({'name': kwargs['your_name'],
                                                                  'mobile_phone': kwargs['Phone Number'],
                                                                  })
-
-        booking = None
         if timphong:
             value = {
                 "guest_id": employee.id,

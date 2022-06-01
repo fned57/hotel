@@ -17,10 +17,9 @@
                         />
                     <field name="status" widget="statusbar"/>
                     </header>
-
                     <sheet>
                         <group>
-                            <field name="room_id" domain="[('status','=', '2')]"/>
+                            <field name="room_id" domain="[('status','in', ['2','3'])]"/>
                             <field name="compute_rent" widget="radio" />
                         </group>
                         <group attrs="{'invisible':[('compute_rent', '!=', 'date')]}">
@@ -42,6 +41,28 @@
                     </sheet>
                 </form>
             </field>
+        </record>
+        <record id="hotel_room_rental_details_view_tree" model="ir.ui.view">
+            <field name="name">hotel.room.rental.details.tree</field>
+            <field name="model">hotel.room.rental.detail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="room_id"/>
+                    <field name="compute_rent"/>
+                     <field name="arrival_date"/>
+                    <field name="departure_date"/>
+                    <field name="status"/>
+                    <field name="total" sum="Tổng tiền "/>
+                </tree>
+            </field>
+        </record>
+        <record id="hotel_room_rental_details_view_act" model="ir.actions.act_window">
+            <field name="name">Chi tết đặt phòng</field>
+            <field name="res_model">hotel.room.rental.detail</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="domain">-->
+<!--                            [("room_id.room_type_id.id", "=", active_id),('status', '=', '3')]-->
+<!--            </field>-->
         </record>
     </data>
 </odoo>
