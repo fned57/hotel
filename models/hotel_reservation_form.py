@@ -35,7 +35,7 @@ class HotelReservationForm(models.Model):
         for rec in self:
             print((rec.date_of_issue - datetime.now()).total_seconds() / 60)
             if rec.status in ['1', '0'] and rec.sotiendatcoc == 0 and (
-                    rec.date_of_issue - datetime.now()).total_seconds() / 60 < -50:
+                    rec.date_of_issue - datetime.now()).total_seconds() / 60 < -5:
                 rec.canceled()
 
 

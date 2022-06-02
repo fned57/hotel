@@ -134,7 +134,6 @@
                                 <field name="guest_id" groups="hotel.group_hotel_user" />
                                 <field name="current_id"/>
                                 <field name="date_of_issue"/>
-                                <!--                                <field name="status" />-->
                                 <field name="total_money"/>
                             </group>
                             <group>
@@ -159,10 +158,10 @@
                                 <page string="Services">
                                     <field name="service_detail_ids">
 
-                                        <tree>
+                                        <tree editable="bottom">
                                             <field name="service_id"/>
                                             <field name="number_of_uses"/>
-                                            <field name="amount"/>
+                                            <field name="amount" readonly="1"/>
                                         </tree>
                                     </field>
                                 </page>

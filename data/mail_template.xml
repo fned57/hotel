@@ -5,11 +5,10 @@
         <record id="hotel_send_mail_template" model="mail.template">
             <field name="name">Welcome Demo</field>
             <field name="model_id" ref="hotel.model_hotel_reservation_form"/>
-            <field name="email_from">"${object.current_id.mail_forward}</field>
-            <field name="email_to">${object.guest_id.login}</field>
+            <field name="email_from">${object.current_id.mail_forward}</field>
+            <field name="email_to">${object.guest_id.work_email}</field>
             <field name="body_html" type="html">
-                <h1>Xin Chào ${object.guest_id.name}</h1>
-                <p>Cảm ơn bạn đã đặt phòng tại khác sạn của chúng tôi. Chúc quý khách có những ngày nghỉ vui vẻ </p>
+                <p>Cảm ơn quý khách ${object.guest_id.name} đã đặt phòng tại khách sạn của chúng tôi. Chúc quý khách có những ngày nghỉ vui vẻ </p>
             </field>
         </record>
 

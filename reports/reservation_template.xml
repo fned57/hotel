@@ -32,10 +32,11 @@
                     <table class="table table-bordered" style="text-align: right">
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Discount</th>
-                                <th scope="col">Total</th>
+                                <th scope="col">Số phòng</th>
+                                <th scope="col">Ngày bắt đầu</th>
+                                <th scope="col">Ngày kết thúc</th>
+                                <th scope="col">Giảm giá</th>
+                                <th scope="col">Tổng tiền</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,7 +46,9 @@
                                         <span t-field="line.room_id"/>
                                     </th>
                                     <td>
-                                        <span t-field="line.room_id.price"/>
+                                        <span t-field="line.arrival_date"/>
+                                    </td><td>
+                                        <span t-field="line.departure_date"/>
                                     </td>
                                     <td>
                                         <t t-foreach="line.promotion_ids" t-as="discount">
@@ -73,10 +76,10 @@
                     <table class="table table-bordered" style="text-align: right">
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Unit Price</th>
-                                <th scope="col">Amount</th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Giá gốc</th>
+                                <th scope="col">Tổng tiền</th>
                             </tr>
                         </thead>
                         <tbody>
